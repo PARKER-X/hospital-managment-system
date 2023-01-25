@@ -1,0 +1,79 @@
+{% extends 'doctor/nav.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+<div class="card text-white bg-dark mb-3" style="max-width: 540px;margin: 0 auto;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{request.user.profile_picture.url}}" class="img-fluid rounded-start" alt="user profile_picture">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Profile</h5>
+                <p class="card-text">{{request.user.first_name}} {{ request.user.last_name }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-success  table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Field</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Username</th>
+            <td>{{ request.user.username }}</td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td>{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>{{ request.user.last_name }}</td>
+
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ request.user.email }}</td>
+
+        </tr>
+        <tr>
+            <th>Adderess</th>
+            <td>{{ request.user.line }}</td>
+
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ request.user.city }}</td>
+
+        </tr>
+        <tr>
+            <th>State</th>
+            <td>{{ request.user.state }}</td>
+        </tr>
+        <tr>
+            <th>Pincode</th>
+            <td>{{ request.user.pincode }}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+{% else %}
+<h1>Looks like you are not logged in</h1>
+<a href="{% url 'login' %}">
+    <button class="btn btn-success">Login Here</button>
+</a>
+<h1>Create a new Account</h1>
+<a href="{% url 'signup' %}">
+    <button class="btn btn-warning">Sign Up</button>
+</a>
+
+{% endif %}
+
+{% endblock content %}
