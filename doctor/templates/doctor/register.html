@@ -1,5 +1,48 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
-{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .loginform,
+.signupform{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginform input,
+.signupform input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.loginform label,
+.signupform label{
+    font-size: larger;
+    margin-top: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+</style>
+<body>
+    
 <form method="POST" enctype="multipart/form-data" class="signupform">
     {% csrf_token %}
 {% if form.errors %}
@@ -13,4 +56,8 @@
     {% endfor %}
     <button type="submit" class="btn btn-success">Sign Up</button>
 </form>
-{% endblock content %}
+<br><br>
+
+</body>
+</html>
+

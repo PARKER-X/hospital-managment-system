@@ -916,3 +916,36 @@
     font-size:1.3em;
     }
     }
+
+
+    .loginform,
+.signupform{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginform input,
+.signupform input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.loginform label,
+.signupform label{
+    font-size: larger;
+    margin-top: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
